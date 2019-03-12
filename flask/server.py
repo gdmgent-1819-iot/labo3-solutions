@@ -1,12 +1,15 @@
 '''
 Sensehat Dashboard
---------------------
+=========================================
 Author: drdynscript
 Modified: 03-12-2019
---------------------
+-----------------------------------------
 Installation:
-sudo pip3 -U Flask
+sudo pip install -U Flask (python2)
+sudo pip3 install -U Flask (python3)
+-----------------------------------------
 Docs: http://flask.pocoo.org/docs/1.0/
+=========================================
 '''
 # Import the libraries
 from flask import Flask, jsonify, render_template, request
@@ -38,25 +41,17 @@ def my_ip():
 # Define the api_environment route
 @app.route('/api/environment', methods=['GET'])
 def api_environment():
-  environment_obj = {
-    'temperature': {
-      'value': round(sense.get_temperature()),
-      'unit': u'°C'
-    },
-    'humidity': {
-      'value': round(sense.get_humidity()),
-      'unit': u'%'
-    },
-    'pressure': {
-      'value': round(sense.get_pressure()),
-      'unit': u'mbar'
-    }
-  }
+  environment_obj = create_environment_object()
   return jsonify(environment_obj), 200
 
 # Define the api_environment route
 @app.route('/environment', methods=['GET'])
 def environment():
+  environment_obj = create_environment_object()
+  return render_template('environment.html', environment=environment_obj)
+
+# Create Environment object (json)
+def create_environment_object():
   environment_obj = {
     'temperature': {
       'value': round(sense.get_temperature()),
@@ -71,7 +66,7 @@ def environment():
       'unit': u'mbar'
     }
   }
-  return render_template('environment.html', environment=environment_obj)
+  return environment_obj
 
 # Main method for Flask server
 if __name__ == '__main__':
