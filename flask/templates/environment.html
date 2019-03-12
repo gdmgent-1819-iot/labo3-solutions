@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Environment Sensors | Internet of Things | New Media Development</title>
+</head>
+<body>
+  {% if environment %}
+    <table>
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if environment['temperature'] %}
+        <tr>
+          <td>Temperature</td>
+          <td><span class="value">{{ environment['temperature']['value'] }}</span><span class="unit">{{ environment['temperature']['unit'] }}</span></td>
+        </tr>
+        {% endif %}
+        {% if environment['humidity'] %}
+        <tr>
+          <td>Humidity</td>
+          <td><span class="value">{{ environment['humidity']['value'] }}</span><span class="unit">{{ environment['humidity']['unit'] }}</span></td>
+        </tr>
+        {% endif %}
+        {% if environment['pressure'] %}
+        <tr>
+          <td>Pressure</td>
+          <td><span class="value">{{ environment['pressure']['value'] }}</span><span class="unit">{{ environment['pressure']['unit'] }}</span></td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No environment sensor values</p>
+  {% endif %}
+</body>
+</html>
