@@ -1,0 +1,11 @@
+/*
+Ambilight
+*/
+.ambilight__led {
+  display: block;
+  width: 20vw;
+  height: 20vw;
+
+  border: 2px solid #000000;
+  box-sizing: border-box;
+}

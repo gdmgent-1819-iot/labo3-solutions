@@ -15,6 +15,13 @@ Docs: http://flask.pocoo.org/docs/1.0/
 from flask import Flask, jsonify, render_template, request
 from sense_hat import SenseHat
 
+# Variables
+ambilight_obj = {
+  'value': '#000000',
+  'type': 'hex',
+  'created': None
+}
+
 # Create an instance of flask
 app = Flask(__name__)
 
@@ -50,6 +57,24 @@ def environment():
   environment_obj = create_environment_object()
   return render_template('environment.html', environment=environment_obj)
 
+# Define the ambilight route
+@app.route('/ambilight', methods=['GET', 'POST'])
+def ambilight():
+  global ambilight_obj
+  if(request.method == 'POST'):
+    print(request.form['txtColor'])
+    ambilight_obj['value'] = request.form['txtColor']    
+  return render_template('ambilight.html', ambilight=ambilight_obj)
+
+# Define the api_ambilight route
+@app.route('/api/ambilight', methods=['GET', 'PUT'])
+def api_ambilight():
+  global ambilight_obj
+  if(request.method == 'GET'):
+    return jsonify(ambilight_obj), 200
+  elif request.method == 'PUT':
+    return jsonify(ambilight_obj), 200
+
 # Create Environment object (json)
 def create_environment_object():
   environment_obj = {
@@ -68,6 +93,9 @@ def create_environment_object():
   }
   return environment_obj
 
+# Constants
+host = '192.168.0.8'
+port = 8080
 # Main method for Flask server
 if __name__ == '__main__':
-  app.run(host = '10.5.129.22', port = 8080, debug = True)
+  app.run(host = host, port = port, debug = True)

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ambilight | Internet of Things | New Media Development</title>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  {% if ambilight %}
+    <div class="ambilight">
+      <div class="ambilight__led" style="background:{{ ambilight['value'] }}"></div>
+      <div class="ambilight__remote">
+        <form id="formAmbilight" name="formAmbilight" action="ambilight" method="POST">
+          <input id="txtColor" name="txtColor" type="color" value="{{ ambilight['value'] }}">
+          <button type="submit">Change</button>
+        </form>
+      </div>
+    </div> 
+  {% else %}
+    <p>No ambilight values present</p>
+  {% endif %}
+</body>
+</html>
