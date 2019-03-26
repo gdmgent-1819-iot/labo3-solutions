@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ambilight | Start to Code | Internet of Things | Artevelde University College Ghent</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  <link href="vendor/color-picker/color-picker.min.css" rel="stylesheet">
+  <link href="assets/css/grid.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header-wrapper">
+      <div class="grid__container">
+          <div class="grid__row header__row">
+              <div class="grid__column-xs-3">
+                <h1 class="header__logo">
+                  <a href="" title="">Start to Code</a>
+                </h1>
+              </div>
+              <div class="grid__column-xs-6">
+                <h2 class="header__title">Workshop: Internet of Things</h2>
+              </div>
+              <div class="grid__column-xs-3">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="grid__container">
+    <div class="grid__row">
+        <div class="grid__column-xs-12 grid__column-sm-6 card__container">
+          <!-- CARD: RGB Led Matrix-->
+          <div class="card">
+              <div class="card__header">
+                <i class="far fa-lightbulb rgbmatrix__bulb"></i>
+                <span>Light</span>
+                <span></span>
+              </div>
+              <div class="card__main">
+                <div id="rgbmatrix"></div>
+              </div>
+              <div class="card__footer">
+                <input id="txtRgbmatrixColor" name="txtRgbmatrixColor" type="text" required placeholder="Write your color in here ...">
+                <input id="chkRgbmatrixState" name="chkRgbmatrixState" type="checkbox" required>
+              </div>
+            </div>
+        </div>
+        <div class="grid__column-xs-12 grid__column-sm-6 card__container">
+          <!-- CARD: Environment-->
+          <div class="card">
+            <div class="card__header">
+              <i class="fas fa-thermometer-half environment__bulb"></i>
+              <span>Environment Sensors</span>
+              <span></span>
+            </div>
+            <div class="card__main">
+              <table id="environment" class="table">
+                <tbody>
+                    <tr>
+                      <td>Date</td>
+                      <td id="environment__modified_at"></td>
+                    </tr>
+                  <tr>
+                    <td>Temperature</td>
+                    <td id="environment__temperature"></td>
+                  </tr>
+                  <tr>
+                    <td>Humidity</td>
+                    <td id="environment__humidity"></td>
+                  </tr>
+                  <tr>
+                    <td>Pressure</td>
+                    <td id="environment__pressure"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card__footer">
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="footer-wrapper">
+    <div class="grid__container">
+        <div class="grid__row header__row">
+            <div class="grid__column-xs-3">
+              <h1 class="footer__logo">
+                <a href="" title="">Start to Code</a>
+              </h1>
+            </div>
+            <div class="grid__column-xs-9">
+              <h2 class="footer__title">Philippe De Pauw - Waterschoot</h2>
+              <p class="footer__main">
+                <a href="https://www.arteveldehogeschool.be/opleidingen/hbo5/programmeren" target="_blank">Graduaat Programmeren</a>
+                <a href="https://www.arteveldehogeschool.be/opleidingen/bachelor/grafische-en-digitale-media/new-media-development-multimediaproductie" target="_blank">Bachelor in New Media Development</a>
+              </p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <script src="vendor/color-picker/color-picker.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+/*
+Webfonts
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i');
+
+/*
+Variables
+*/
+:root {
+  --color-black: #000000;
+  --color-grey-dark: #dddddd;
+  --color-grey: #e6e6e6;
+  --color-grey-light: #efefef;
+  --color-white: #ffffff;
+  --gutter: 12px;
+  --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-family-roboto: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+  line-height: 1.52;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-montserrat);
+  font-weight: 600;
+  line-height: 1.42;
+}
+
+/*
+Header
+*/
+.header-wrapper {
+  background: var(--color-grey);
+  margin-bottom: calc(2*var(--gutter));
+
+  padding-top: calc(var(--gutter));
+  padding-bottom: calc(var(--gutter));
+}
+.header__logo {
+  text-indent: -999em;
+}
+.header__logo > a {
+  display: block;
+  width: 64px;
+  height: 64px;
+  background: url('../images/start2code.png') center center no-repeat;
+  background-size: cover;
+}
+.header__title {
+  text-align: center;
+}
+.header__row {
+  align-items: center;
+}
+
+/*
+Footer
+*/
+.footer-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+
+  background: var(--color-grey);
+  padding-top: calc(var(--gutter));
+  padding-bottom: calc(var(--gutter));
+}
+.footer__logo {
+  text-indent: -999em;
+}
+.footer__logo > a {
+  display: block;
+  width: 50.66666px;
+  height: 32px;
+  background: url('../images/ahs_logo_color.png') center center no-repeat;
+  background-size: cover;
+}
+.footer__title {
+  font-size: 18px;
+  text-align: right;
+}
+.footer__main {
+  text-align: right;
+}
+
+/*
+Components
+*/
+.card__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+}
+.card__container .card {
+  height: 100%;
+}
+.card {
+  background: var(--color-light-grey);
+  border: 2px solid var(--color-grey-dark);
+  border-radius: calc(var(--gutter)/2);
+
+  overflow: hidden;
+  margin-bottom: calc(2*var(--gutter));
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card__header {
+  padding: calc(var(--gutter)/2) calc(var(--gutter));
+  background: var(--color-grey);
+  color: var(--color-black);
+
+  border-bottom: 2px solid var(--color-grey-dark);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.card__main {
+  padding: calc(var(--gutter)) calc(var(--gutter));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+
+  flex-grow: 1;
+}
+
+.card__footer {
+  padding: calc(var(--gutter)/2) calc(var(--gutter));
+  background: var(--color-grey);
+  color: var(--color-black);
+
+  border-top: 2px solid var(--color-grey-dark);
+}
+
+.table {
+  border-collapse: collapse;
+}
+.table tr {
+  background: var(--color-grey-dark);
+}
+.table tr:nth-of-type(even) {
+  background: var(--color-grey-light);
+}
+.table td {
+  border: calc(var(--gutter)/3) solid var(--color-grey);
+  padding: calc(var(--gutter)/2) calc(var(--gutter)/2);
+}
+
+#rgbmatrix {
+  height: 200px;
+  width: 200px;
+
+  background: #000000;
+  border: 4px solid #000000; 
+}
+
+#environment__temperature .label,
+#environment__humidity .label,
+#environment__pressure .label {
+  margin-left: var(--gutter);
+}
